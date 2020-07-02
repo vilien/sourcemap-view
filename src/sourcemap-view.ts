@@ -1,10 +1,20 @@
 import vlq from 'vlq';
 
+interface Sourcemap {
+  version: number,
+  sources: string[],
+  names: string[],
+  mappings: string,
+  file: string,
+  sourcesContent: string[],
+  sourceRoot: string
+}
+
 /**
  * View the original code from the sourcemap based on the error lineno and colno. 
  * @param {string} sourcemap 
  */
-const sourcemapView = (sourcemap: any) => {
+const sourcemapView = (sourcemap: Sourcemap) => {
   const mappings = sourcemap.mappings.split(';').map(
     (line: string) => line.split(',')
   );
@@ -17,7 +27,7 @@ const sourcemapView = (sourcemap: any) => {
 
     // Find the map.
     let map: number[] = [];
-    mappings[line].some((item: number[]) => {
+    mappings[line].some((item: string) => {
       const c = vlq.decode(item);
       map = [
         (map[0] || 0) + c[0],
