@@ -1,0 +1,46 @@
+{
+  "name": "sourcemap-view",
+  "version": "1.0.1",
+  "description": "View the original code from the sourcemap based on the error lineno and colno.",
+  "main": "dist/sourcemap-view.js",
+  "module": "dist/sourcemap-view.es.js",
+  "scripts": {
+    "build": "rollup -c && tsc",
+    "lint": "eslint src/**.ts",
+    "test": "node __tests__",
+    "pretest": "npm run build",
+    "prepublish": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vilien/sourcemap-view.git"
+  },
+  "keywords": [
+    "sourcemap",
+    "sourcemap view",
+    "js error",
+    "original code"
+  ],
+  "author": "Vilien",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vilien/sourcemap-view/issues"
+  },
+  "homepage": "https://github.com/vilien/sourcemap-view#readme",
+  "files": [
+    "README.md",
+    "LICENSE",
+    "dist/*.js",
+    "dist/**/*.d.ts"
+  ],
+  "dependencies": {
+    "vlq": "^1.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.3.1",
+    "rollup": "^2.18.2",
+    "rollup-plugin-typescript": "^1.0.1",
+    "tslib": "^2.0.0",
+    "typescript": "^3.9.6"
+  }
+}
