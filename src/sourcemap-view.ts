@@ -15,7 +15,8 @@ interface Sourcemap {
  * @param {string} sourcemap 
  */
 const sourcemapView = (sourcemap: Sourcemap) => {
-  const mappings = sourcemap.mappings.split(';').map(
+
+  const mappings = (sourcemap.mappings || '').split(';').map(
     (line: string) => line.split(',')
   );
 
@@ -43,11 +44,11 @@ const sourcemapView = (sourcemap: Sourcemap) => {
     if (map[0] !== col) return null;
 
     return {
-      file: map[1] ? sourcemap.sources[map[1]] : null,
+      file: map[1] && sourcemap.sources ? sourcemap.sources[map[1]] : null,
       lineNo: map[2] ? map[2] + 1 : 0,
       colNo: map[3] ? map[3] + 1 : 0,
-      name: map[4] ? sourcemap.names[map[4]]: null,
-      content: (map[1] && sourcemap.sourcesContent[map[1]]) || null,
+      name: map[4] && sourcemap.names ? sourcemap.names[map[4]]: null,
+      content: map[1] && sourcemap.sourcesContent ? sourcemap.sourcesContent[map[1]] : null,
     };
   }
 }
