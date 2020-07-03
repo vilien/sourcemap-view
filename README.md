@@ -34,7 +34,7 @@ const sourcemapRaw = fs.readFileSync('./app.07cd8612.js.map', { encoding: 'utf-8
 
 const view = sourcemapView(JSON.parse(sourcemapRaw));
 
-view(1, 3821); // { file: './HelloWorld.js', lineNo: 43, colNo: 29, name: 'a', content: <Original Code> }
+view(1, 3842); // { file: './HelloWorld.js', lineNo: 43, colNo: 29, name: 'a', content: <Original Code> }
 view(1, 3357); // { file: './HelloWorld.js', lineNo: 35, colNo: 0, name: 'setTimeout', content: <Original Code> }
 ```
 
