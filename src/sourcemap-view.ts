@@ -1,4 +1,4 @@
-import vlq from 'vlq';
+import { decode } from 'vlq';
 
 interface Sourcemap {
   version: number,
@@ -28,7 +28,7 @@ const sourcemapView = (sourcemap: Sourcemap) => {
     // Find the map.
     let map: number[] = [];
     mappings[line].some((item: string) => {
-      const c = vlq.decode(item);
+      const c = decode(item);
       map = [
         (map[0] || 0) + c[0],
         (map[1] || 0) + (c[1] || 0),

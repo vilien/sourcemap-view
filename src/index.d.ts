@@ -1,4 +1,4 @@
 declare module 'vlq' {
-  const noTypesYet: any;
-  export default noTypesYet;
+  const decode: any;
+  export { decode };
 }
