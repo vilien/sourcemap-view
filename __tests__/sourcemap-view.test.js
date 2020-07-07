@@ -13,7 +13,7 @@ const view = sourcemapView(sourcemap);
 assert.deepStrictEqual(view(1, 987), {
   file: 'webpack:///./index.js',
   lineNo: 7,
-  colNo: 16,
+  colNo: 15,
   name: 'user',
   content: sourcemap.sourcesContent[1],
 });
@@ -22,7 +22,7 @@ assert.deepStrictEqual(view(1, 987), {
 assert.deepStrictEqual(view(1, 1010), {
   file: 'webpack:///./index.js',
   lineNo: 7,
-  colNo: 46,
+  colNo: 45,
   name: 'age',
   content: sourcemap.sourcesContent[1],
 });
