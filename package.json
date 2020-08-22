@@ -1,6 +1,6 @@
 {
   "name": "sourcemap-view",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "View the original code from the sourcemap based on the error lineno and colno.",
   "main": "dist/sourcemap-view.js",
   "module": "dist/sourcemap-view.es.js",

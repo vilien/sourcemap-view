@@ -68,14 +68,14 @@ const sourcemapView = (sourcemap: Sourcemap) => {
     });
 
     // Wrong col.
-    if (map[0] !== col) return null;
+    if (map[0] !== col && map[0] !== colNo) return null;
 
     return {
-      file: map[1] && sourcemap.sources ? sourcemap.sources[map[1]] : null,
-      lineNo: map[2] ? map[2] + 1 : 0,
-      colNo: map[3] ? map[3] : 0,
-      name: map[4] && sourcemap.names ? sourcemap.names[map[4]]: null,
-      content: map[1] && sourcemap.sourcesContent ? sourcemap.sourcesContent[map[1]] : null,
+      file: Number.isInteger(map[1]) && sourcemap.sources ? sourcemap.sources[map[1]] : null,
+      lineNo: Number.isInteger(map[2]) ? map[2] + 1 : 0,
+      colNo: Number.isInteger(map[3]) ? map[3] : 0,
+      name: Number.isInteger(map[4]) && sourcemap.names ? sourcemap.names[map[4]]: null,
+      content: Number.isInteger(map[1]) && sourcemap.sourcesContent ? sourcemap.sourcesContent[map[1]] : null,
     };
   }
 }
